@@ -15,7 +15,7 @@ const Search = () => {
         series: []
     });
     const [searcQuery, setsearcQuery] = useState('Comedy');
-    const [url, setUrl] = useState(`http://api.tvmaze.com/search/shows?q=comedy`);
+    const [url, setUrl] = useState(`https://api.tvmaze.com/search/shows?q=comedy`);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const Search = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setUrl(`http://api.tvmaze.com/search/shows?q=${searcQuery}`);
+        setUrl(`https://api.tvmaze.com/search/shows?q=${searcQuery}`);
     };
 
     const showLoading = () => (loading ? <Loader message="Loading..." /> : "");
