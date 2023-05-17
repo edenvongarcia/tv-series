@@ -89,7 +89,7 @@ const AllShows = () => {
                         return (
                             <div className='col-md-3 col-sm-6 col-xs-12' key={index}>
                                 <div className="thumbnail">
-                                    <img src={imageUrl} alt={element.name} />
+                                    <a href= {"shows/" + element.id} title="View more details"><img src={imageUrl} alt={element.name} /></a>
 
                                     <div className="thumbnail_overlay">
                                         {/* <a className="fa fa-star" href="#" title="Score"> <span className="badge"><ToFixedNumber score={element.score} /></span></a> */}

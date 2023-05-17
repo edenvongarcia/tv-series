@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 
-import Header from '../../Layouts/Header';
-import Footer from '../../Layouts/Footer';
-import Search from '../Search';
-import AllShows from '../AllShows';
-import Countdown from '../Countdown';
-import { About } from '../About'; // we use { About } if About.js don't use export default About; but instead uses export const About = () =>
-import { Api } from '../Api';
+import Header from './Layouts/Header';
+import Footer from './Layouts/Footer';
+import Search from './Pages/Search';
+import AllShows from './Pages/AllShows';
+import { Show } from './Pages/Show';
+import Countdown from './Pages/Countdown';
+import { About } from './Pages/About'; // we use { About } if About.js don't use export default About; but instead uses export const About = () =>
+import { Api } from './Pages/Api';
+import { NoRoute } from './Pages/NoRoute';
 import { Routes, Route } from 'react-router-dom';
-import './App.css';
 
-class Series extends Component {
+class App extends Component {
     render() {
         return (
             <div className="page">
@@ -23,6 +24,8 @@ class Series extends Component {
                         <Route path='countdown' element={<Countdown />} />
                         <Route path='api' element={<Api />} />
                         <Route path='about' element={<About />} />
+                        <Route path='shows/:showId' element={<Show />} />
+                        <Route path='*' element={<NoRoute />} />
                     </Routes>
                 </main>
                 
@@ -34,4 +37,4 @@ class Series extends Component {
     }
 }
 
-export default Series; 
+export default App; 

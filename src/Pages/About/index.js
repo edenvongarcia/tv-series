@@ -19,7 +19,7 @@ export const About = () => {
                                 <div className='col-md-4 col-sm-6'>
                                     <h2>More Info</h2>
 
-                                    <ul class="index-list">
+                                    <ul className="index-list">
                                         <li>
                                             <h5>Name</h5>
                                             <p>{author.name}</p>

@@ -17,10 +17,6 @@ const Footer = props => (
                 <div className="col-md-3 col-sm-3 col-xs-12">
                     <ul className="inline-list">
                         <li><a className="fa fa-github" href="https://github.com/edenvongarcia/" target="_blank"></a></li>
-                        <li><a className="fa fa-pinterest" href="#"></a></li>
-                        <li><a className="fa fa-twitter" href="#"></a></li>
-                        <li><a className="fa fa-facebook" href="#"></a></li>
-                        <li><a className="fa fa-instagram" href="#"></a></li>
                     </ul>
                 </div>
             </div>
