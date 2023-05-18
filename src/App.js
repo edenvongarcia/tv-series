@@ -10,6 +10,9 @@ import { About } from './Pages/About'; // we use { About } if About.js don't use
 import { Api } from './Pages/Api';
 import { NoRoute } from './Pages/NoRoute';
 import { Routes, Route } from 'react-router-dom';
+import './mailform.css';  
+import './series.css';  
+import './styles.css';  
 
 class App extends Component {
     render() {

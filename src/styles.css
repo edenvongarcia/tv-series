@@ -1,0 +1,273 @@
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+@import url(//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
+/*========================================================
+                      Main Styles
+=========================================================*/
+.badge {
+  background: none;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+@media (max-width: 991px) {
+  .clearboth {
+    clear: both;
+  }
+}
+.mg-add {
+  margin-top: 200px;
+}
+h5 + time {
+  color: #565f61;
+  display: block;
+}
+* + h5 + time {
+  margin-top: 13px;
+}
+/*========================================================
+                   Main Layout
+=========================================================*/
+* + .row {
+  margin-top: 69px;
+}
+@media (max-width: 1199px) {
+  * + .row {
+    margin-top: 30px;
+  }
+}
+.row + * {
+  margin-top: 50px;
+}
+.row + .row {
+  margin-top: 25px;
+}
+* + .p__mod {
+  margin-top: 23px;
+}
+* + .btn {
+  margin-top: 30px;
+}
+h2 + p {
+  margin-top: 45px;
+}
+.row + .btn {
+  margin-top: 50px;
+}
+* + h5 {
+  margin-top: 20px;
+}
+* + .offs {
+  margin-top: 60px;
+}
+h2 + img {
+  margin-top: 70px;
+}
+h2 + .index-list {
+  margin-top: 68px;
+}
+h2 + h5 {
+  margin-top: 70px;
+}
+img + h5 {
+  margin-top: 16px;
+}
+* + p {
+  margin-top: 10px;
+}
+p + .marked-list2 {
+  margin-top: 66px;
+}
+.marked-list2 + p {
+  margin-top: 64px;
+}
+h2 + h5,
+h2 + .block-icon,
+h2 + .blockquote2 {
+  margin-top: 70px;
+}
+@media (max-width: 1199px) {
+  h2 + h5,
+  h2 + .block-icon,
+  h2 + .blockquote2 {
+    margin-top: 30px;
+  }
+}
+.row + .offs {
+  margin-top: 75px;
+}
+@media (max-width: 1199px) {
+  .row + .offs {
+    margin-top: 30px;
+  }
+}
+/*=======================================================
+                        Components
+=========================================================*/
+/*==================      HR      =======================*/
+.hr__mod {
+  display: inline-block;
+  background: #31383a;
+  border: none;
+  height: 1px;
+  width: 100%;
+}
+/*==================      Rate      =====================*/
+* + .rate {
+  margin-top: 7px;
+}
+.rate .fa-star,
+.rate .fa-star-o {
+  font-size: 12px;
+  color: #fff;
+}
+.rate .fa-star:hover,
+.rate .fa-star-o:hover {
+  color: #f73a4c;
+}
+.rate a + a {
+  margin-left: -3px;
+}
+.rate .act {
+  color: #f73a4c;
+}
+/*==================     Block-icon    ==================*/
+.block-icon {
+  position: relative;
+  padding-left: 101px;
+}
+.block-icon .icon {
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  width: 71px;
+  height: 71px;
+  line-height: 71px;
+  left: 0px;
+  top: 4px;
+  background: #f73a4c;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+.block-icon + .block-icon {
+  margin-top: 78px;
+}
+.block-icon .fa:before {
+  font-size: 36px;
+  line-height: 71px;
+}
+.block-icon:hover .icon {
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+/*==================  Contact List  ====================*/
+.contact-list {
+  display: inline-block;
+}
+.contact-list address {
+  line-height: 30px;
+}
+.contact-list dl {
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 270px;
+  color: #b1b6b8;
+}
+.contact-list dl:before,
+.contact-list dl:after {
+  content: " ";
+  display: table;
+}
+.contact-list dl:after {
+  clear: both;
+}
+.contact-list dl:before,
+.contact-list dl:after {
+  content: " ";
+  display: table;
+}
+.contact-list dl:after {
+  clear: both;
+}
+.contact-list dl dt {
+  float: left;
+  padding-right: 20px;
+}
+.contact-list dl dd {
+  float: right;
+  margin-right: 8px;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+}
+.contact-list dl dd a[href^="mailto:"]:hover {
+  color: #f73a4c;
+}
+.contact-list dl dd a:hover {
+  color: #f73a4c;
+}
+.contact-list address + dl {
+  margin-top: 11px;
+}
+* + .contact-list {
+  margin-top: 42px;
+}
+/*==================      Box      ======================*/
+.box:before,
+.box:after {
+  content: " ";
+  display: table;
+}
+.box:after {
+  clear: both;
+}
+.box:before,
+.box:after {
+  content: " ";
+  display: table;
+}
+.box:after {
+  clear: both;
+}
+.box_aside {
+  float: left;
+}
+.box_aside img {
+  margin-right: 30px;
+}
+.box_cnt__no-flow {
+  overflow: hidden;
+}
+@media (max-width: 479px) {
+  .box_aside {
+    float: none;
+    text-align: center;
+  }
+}
+/*==================   Copyright     ====================*/
+.copyright {
+  color: #565f61;
+  margin-top: 2px;
+}
+/*==================  404    ======================*/
+.page404 {
+  
+}
+.page404 span {
+  margin-bottom: 10px;
+  display: block;
+  font-size: 150px;
+  font-weight: 700;
+}
+.page404 h2 {
+  margin-top: -41px;
+}
+.page404 * + p {
+  margin-top: 45px;
+}
