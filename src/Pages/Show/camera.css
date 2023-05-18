@@ -1,12 +1,8 @@
-@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
-@import url(//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
-/* @import url(../css/material-design.css);
-/*======================================================== */
+/*========================================================
                         Camera
 =========================================================*/
 .camera_container {
   position: relative;
-  padding-bottom: 54.29268293%;
 }
 @media (max-width: 644.65408805px) {
   .camera_container {
@@ -222,15 +218,7 @@
 .camera_pag_ul li > span {
   display: none;
 }
-.camera_pag_ul .pag_nav_0 {
-  /* background: url("../images/dot-slider1.jpg") no-repeat; */
-}
-.camera_pag_ul .pag_nav_1 {
-  /* background: url("../images/dot-slider2.jpg") no-repeat; */
-}
-.camera_pag_ul .pag_nav_2 {
-  /* background: url("../images/dot-slider3.jpg") no-repeat; */
-}
+
 .camera_pag_ul .pag_nav_0:hover,
 .camera_pag_ul .pag_nav_1:hover,
 .camera_pag_ul .pag_nav_2:hover {
