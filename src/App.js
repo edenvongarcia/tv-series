@@ -29,6 +29,7 @@ class App extends Component {
                         <Route path='api' element={<Api />} />
                         <Route path='about' element={<About />} />
                         <Route path='shows/:showId' element={<Show />} />
+                        <Route path='tv-series/shows/:showId' element={<Show />} />
                         <Route path='*' element={<NoRoute />} />
                     </Routes>
                 </main>
