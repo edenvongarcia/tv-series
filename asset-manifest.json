@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/tv-series/static/css/main.3f39cddf.css",
-    "main.js": "/tv-series/static/js/main.7d5e3adf.js",
+    "main.css": "/tv-series/static/css/main.e6c13ad2.css",
+    "main.js": "/tv-series/static/js/main.58c84560.js",
     "static/js/787.a019e2ad.chunk.js": "/tv-series/static/js/787.a019e2ad.chunk.js",
     "static/media/avatar.jpg": "/tv-series/static/media/avatar.090077d273885ee9957e.jpg",
     "index.html": "/tv-series/index.html",
-    "main.3f39cddf.css.map": "/tv-series/static/css/main.3f39cddf.css.map",
-    "main.7d5e3adf.js.map": "/tv-series/static/js/main.7d5e3adf.js.map",
+    "main.e6c13ad2.css.map": "/tv-series/static/css/main.e6c13ad2.css.map",
+    "main.58c84560.js.map": "/tv-series/static/js/main.58c84560.js.map",
     "787.a019e2ad.chunk.js.map": "/tv-series/static/js/787.a019e2ad.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3f39cddf.css",
-    "static/js/main.7d5e3adf.js"
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.58c84560.js"
   ]
 }
