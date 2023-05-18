@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Heading from '../../Layouts/Heading';
-import './camera.css'; 
+// import './camera.css'; 
 
 // import Heading from '../../Layouts/Heading';
 // import placeholder from '../../assets/images/placeholder.jpeg';
