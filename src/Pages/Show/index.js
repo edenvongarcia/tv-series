@@ -15,17 +15,33 @@ export const Show = () => {
     // Data for Series Posters
     const [posters, setPosters] = useState([]);
 
+    // Data for Series Casts
+    const [casts, setCasts] = useState([]);
+
+    // Data for Series akas
+    const [akas, setAkas] = useState([]);
+
+    // Data for Series Crews
+    const [crews, setCrews] = useState([]);
+
     useEffect(() => {
         Promise.all([
             fetch(`https://api.tvmaze.com/shows/${showId}`),
             fetch(`https://api.tvmaze.com/shows/${showId}/images`),
+            fetch(`https://api.tvmaze.com/shows/${showId}/cast`),
+            fetch(`https://api.tvmaze.com/shows/${showId}/akas`),
+            fetch(`https://api.tvmaze.com/shows/${showId}/crew`),
+            
         ])
-        .then(([resShows, resPosters]) => 
-            Promise.all([resShows.json(), resPosters.json()])
+        .then(([resShows, resPosters, resCasts, resAkas, resCrews]) => 
+            Promise.all([resShows.json(), resPosters.json(), resAkas.json(), resCasts.json(), resCrews.json()])
         )
-        .then(([dataShows, dataPosters]) => {
+        .then(([dataShows, dataPosters, dataAkas, dataCasts, dataCrews]) => {
             setShows(dataShows);
             setPosters(dataPosters);
+            setCasts(dataCasts);
+            setAkas(dataAkas);
+            setCrews(dataCrews);
         });
     }, []);
 
@@ -41,6 +57,7 @@ export const Show = () => {
         }
     )};
 
+    console.log(akas);
 
     return (
         <section>
@@ -68,23 +85,149 @@ export const Show = () => {
 
             <section className="parallax well2">
                 <div className="container ">
-                    <div className="row text-center center767">
-                        <Heading message="Show Info" />
-                    </div>
+                    
 
                     <div className="row">
-                        <div className="col-md-4 col-sm-6 col-xs-12">
-                            <ul>
-                                <li><strong>Network:</strong> {shows?.network?.country?.name} {shows?.network?.name}</li>
-                                <li><strong>Schedule:</strong> {shows?.schedule?.days} at {shows?.schedule?.time} ({shows.runtime} min)</li>
-                                <li><strong>Status:</strong> {shows.status}</li>
-                                <li><strong>Type:</strong> {shows.type}</li>
-                                <li><strong>Language:</strong> {shows.language}</li>
-                                <li><strong>Genre:</strong> {shows.genres}</li>
-                                <li><strong>Official site: </strong> {shows?.network?.officialSite}</li>
-                            </ul>                 
+                        <div className="col-md-6 col-sm-6 col-xs-12 table-responsive">
+                            <div className="row text-center center767">
+                                <Heading message="Show Info" />
+                            </div>
+
+                            <table className="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <th>Network</th>
+                                        <td>{shows?.network?.country?.name} <a href="https://www.cbs.com/" target="_blank">{shows?.network?.name}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Schedule</th>
+                                        <td>{shows?.schedule?.days} at {shows?.schedule?.time} ({shows.runtime} min)</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Status</th>
+                                        <td>{shows.status}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Premiered</th>
+                                        <td>{shows.premiered}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Ended</th>
+                                        <td>{shows.ended}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Type</th>
+                                        <td>{shows.type}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Language</th>
+                                        <td>{shows.language}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Genre</th>
+                                        {/* <td>{shows.genres.join(", ")}</td> */}
+                                    </tr>
+                                    <tr>
+                                        <th>Official Site</th>
+                                        <td><a href={shows?.network?.officialSite} title={shows?.network?.name}>{shows?.network?.officialSite}</a></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Rating</th>
+                                        <td>{shows?.rating?.average}</td>
+                                    </tr>
+                                </tbody>
+
+                            </table>                
+                        </div>
+
+                        <div className="col-md-6 col-sm-6 col-xs-12 table-responsive">
+                            <div className="row text-center center767">
+                                <Heading message="Extra Details" />
+                            </div>
+
+                            <table className="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <td colSpan={2}>
+                                            <strong>Also known as</strong>
+                                        </td>
+                                    </tr>
+                                    {
+                                        akas.map((element, index) => {
+                                            return (
+                                                <tr key={index}>
+                                                    <th>{element.name}</th>
+                                                    <td>{element?.country?.name}</td>   
+                                                </tr>
+                                            );
+                                        })
+                                    }
+                                </tbody>
+                            </table>                
                         </div>
                     </div> 
+                </div>
+
+                <div className="container well5">
+                    <div className="container center767">
+                        <div className="row text-center center767">
+                            <Heading message="Cast" />
+                        </div>
+
+                        <div className="row grid">
+                            {
+                                casts.map((element, index) => {
+                                    return (
+                                        <article className='col-md-4 col-sm-4 col-xs-12' key={index}>
+                                            <div className="row">
+                                                <div className="col-md-6 col-sm-6 col-xs-6">
+                                                    <div className="thumbnail">
+                                                        <img src={element.person.image.medium} alt={element.person.name} />
+                                                    </div>
+                                                </div>
+
+                                                <div className="col-md-6 col-sm-6 col-xs-6">
+                                                    <p><strong>{element.person.name}</strong></p>
+                                                    <p>as <strong>{element.character.name}</strong></p>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    );
+                                })
+                            }
+                        </div>
+                    </div> 
+                </div>
+
+                <div className="container text-center crew">
+                    <div className="row">
+                        <Heading message="Crew" />
+                    </div>
+                    
+                    <div className="row">
+                        <div className="row offs">
+                            {
+                                crews.map((element, index) => {
+                                    if(element?.person?.image?.medium != null) {
+                                        imageUrl = <img src={element?.person?.image?.medium} alt={element.person.name} />
+                                    } else {
+                                        imageUrl = <span>Image not available</span>;
+                                    }
+
+                                    return (                                       
+                                        <div className="col-md-2 col-sm-2 col-xs-12" key={index}>
+                                            <div className="thumbnail">
+                                                {imageUrl}
+                                            </div>
+
+                                            <p><strong>{element.person.name}</strong></p>
+                                            <p>{element.type}</p>
+                                        </div>
+                                    );
+                                })
+                            } 
+                        </div>  
+                    </div>
                 </div>
             </section>
         </section>

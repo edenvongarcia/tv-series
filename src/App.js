@@ -23,12 +23,12 @@ class App extends Component {
                 <main>
                     <Routes>
                         <Route path='/' element={<AllShows />} />
-                        <Route path='tv-series/' element={<AllShows />} />
-                        <Route path='search' element={<Search />} />
-                        <Route path='countdown' element={<Countdown />} />
-                        <Route path='api' element={<Api />} />
-                        <Route path='about' element={<About />} />
-                        <Route path='shows/:showId' element={<Show />} />
+                        <Route path='/tv-series/' element={<AllShows />} />
+                        <Route path='/search' element={<Search />} />
+                        <Route path='/countdown' element={<Countdown />} />
+                        <Route path='/api' element={<Api />} />
+                        <Route path='/about' element={<About />} />
+                        <Route path='/shows/:showId' element={<Show />} />
                         <Route path='tv-series/shows/:showId' element={<Show />} />
                         <Route path='*' element={<NoRoute />} />
                     </Routes>

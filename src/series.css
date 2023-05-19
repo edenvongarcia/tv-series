@@ -7258,6 +7258,23 @@ button.close {
     min-height: 380px;
 }
 
+.grid .col-md-4 {
+    margin-top: 45px;
+}
+
+.crew .thumbnail {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    height: 170px;
+    background: #747a7c;
+    text-align: center;
+}
+
+.crew .thumbnail span {
+    flex: 1;
+}
+
 .clear {
     clear: both;
 }
