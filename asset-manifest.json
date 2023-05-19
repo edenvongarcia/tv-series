@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/tv-series/static/css/main.ef2cf96c.css",
-    "main.js": "/tv-series/static/js/main.a616f6c5.js",
+    "main.css": "/tv-series/static/css/main.292fae7a.css",
+    "main.js": "/tv-series/static/js/main.aef627b7.js",
     "static/js/787.a019e2ad.chunk.js": "/tv-series/static/js/787.a019e2ad.chunk.js",
     "static/media/avatar.jpg": "/tv-series/static/media/avatar.090077d273885ee9957e.jpg",
     "index.html": "/tv-series/index.html",
-    "main.ef2cf96c.css.map": "/tv-series/static/css/main.ef2cf96c.css.map",
-    "main.a616f6c5.js.map": "/tv-series/static/js/main.a616f6c5.js.map",
+    "main.292fae7a.css.map": "/tv-series/static/css/main.292fae7a.css.map",
+    "main.aef627b7.js.map": "/tv-series/static/js/main.aef627b7.js.map",
     "787.a019e2ad.chunk.js.map": "/tv-series/static/js/787.a019e2ad.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ef2cf96c.css",
-    "static/js/main.a616f6c5.js"
+    "static/css/main.292fae7a.css",
+    "static/js/main.aef627b7.js"
   ]
 }
