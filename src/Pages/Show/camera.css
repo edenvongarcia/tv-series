@@ -32,6 +32,9 @@
 .camera_src {
   /* display: none; */
 }
+.camera_src img {
+    width: 100%;
+}
 .cameraCont,
 .cameraContents {
   height: 100%;

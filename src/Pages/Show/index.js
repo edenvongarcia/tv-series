@@ -25,6 +25,7 @@ export const Show = () => {
     const [crews, setCrews] = useState([]);
 
     useEffect(() => {
+        setLoading(true);
         Promise.all([
             fetch(`https://api.tvmaze.com/shows/${showId}`),
             fetch(`https://api.tvmaze.com/shows/${showId}/images`),
@@ -34,7 +35,13 @@ export const Show = () => {
             
         ])
         .then(([resShows, resPosters, resCasts, resAkas, resCrews]) => 
-            Promise.all([resShows.json(), resPosters.json(), resAkas.json(), resCasts.json(), resCrews.json()])
+            Promise.all(
+                [resShows.json(), 
+                resPosters.json(), 
+                resAkas.json(), 
+                resCasts.json(), 
+                resCrews.json()], 
+                setLoading(false))
         )
         .then(([dataShows, dataPosters, dataAkas, dataCasts, dataCrews]) => {
             setShows(dataShows);
@@ -48,26 +55,35 @@ export const Show = () => {
     const showLoading = () => (loading ? <div id="preloader"></div> : "");
 
     const setPoster = () => {
-        posters.map((element, index) => {
-            if (index == 5) {
-                imageUrl = element.resolutions.original.url;
-            }
+        const extractedData = posters.map(({ id, resolutions }) => ({
+            id,
+            url: resolutions?.original?.url,
+            width: resolutions?.original?.width,
+        }));
+        
+        // Sort width of images from lowest to highest width
+        const numAscending = [...extractedData].sort((a, b) => a.width - b.width);
+        
+        // Get highest width of image for poster use
+        let lastElement = numAscending.pop();
 
-            return imageUrl;
-        }
-    )};
+        // Deconstruct to get the url of the image, add additional condition to avoid destructure property error
+        const { url } = lastElement || {};
 
-    console.log(akas);
-
+        // Return the image url
+        return imageUrl = url;
+    };
+ 
     return (
         <section>
-            {setPoster()}
+            
             {showLoading()}
 
             <div className="camera_container text-center">
                 <div className="camera_fakehover">
                     <div className="camera_src camerastarted">
-                        <img src={imageUrl} alt={shows.name} />
+                    
+                        <img src={setPoster()} alt={shows.name} />
                     </div>
 
                     <div className="camera_target_content">
@@ -85,8 +101,6 @@ export const Show = () => {
 
             <section className="parallax well2">
                 <div className="container ">
-                    
-
                     <div className="row">
                         <div className="col-md-6 col-sm-6 col-xs-12 table-responsive">
                             <div className="row text-center center767">
@@ -125,7 +139,7 @@ export const Show = () => {
                                     </tr>
                                     <tr>
                                         <th>Genre</th>
-                                        {/* <td>{shows.genres.join(", ")}</td> */}
+                                        <td>{shows?.genres?.join(", ")}</td>
                                     </tr>
                                     <tr>
                                         <th>Official Site</th>
@@ -149,7 +163,7 @@ export const Show = () => {
                                 <tbody>
                                     <tr>
                                         <td colSpan={2}>
-                                            <strong>Also known as</strong>
+                                            <strong>Also known as:</strong>
                                         </td>
                                     </tr>
                                     {
@@ -182,7 +196,7 @@ export const Show = () => {
                                             <div className="row">
                                                 <div className="col-md-6 col-sm-6 col-xs-6">
                                                     <div className="thumbnail">
-                                                        <img src={element.person.image.medium} alt={element.person.name} />
+                                                        <img src={element?.person?.image?.medium} alt={element.person.name} />
                                                     </div>
                                                 </div>
 
