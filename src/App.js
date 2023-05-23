@@ -23,6 +23,7 @@ class App extends Component {
                 <main>
                     <Routes>
                         <Route path='/' element={<AllShows />} />
+                        <Route path='tv-series/' element={<AllShows />} />
                         <Route path='search' element={<Search />} />
                         <Route path='countdown' element={<Countdown />} />
                         <Route path='api' element={<Api />} />
