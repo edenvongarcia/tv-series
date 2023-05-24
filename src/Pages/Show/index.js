@@ -24,6 +24,9 @@ export const Show = () => {
     // Data for Series Crews
     const [crews, setCrews] = useState([]);
 
+    // For settimg
+    const crewMember = [];
+
     useEffect(() => {
         setLoading(true);
         Promise.all([
@@ -73,10 +76,36 @@ export const Show = () => {
         // Return the image url
         return imageUrl = url;
     };
+
+    const showCasts = () => {
+        crews.filter(function(entry) {
+            var previous;
+        
+            // Have we seen this crew before?
+            if (crewMember.hasOwnProperty(entry.person.id)) {
+                // Yes, grab it and add this data to it
+                previous = crewMember[entry.person.id];
+                previous.crews.push(entry.type);
+        
+                // Don't keep this entry, we've merged it into the previous one
+                return false;
+            }
+        
+            // entry.type probably isn't an array; make it one for consistency
+            if (!Array.isArray(entry.type)) {
+                entry.crews = [entry.type];
+            }
+        
+            // Remember that we've seen it
+            crewMember[entry.person.id] = entry;
+        
+            // Keep this one, we'll merge any others that match into it
+            return true;
+        });
+    }
  
     return (
         <section>
-            
             {showLoading()}
 
             <div className="camera_container text-center">
@@ -111,7 +140,7 @@ export const Show = () => {
                                 <tbody>
                                     <tr>
                                         <th>Network</th>
-                                        <td>{shows?.network?.country?.name} <a href="https://www.cbs.com/" target="_blank">{shows?.network?.name}</a></td>
+                                        <td>{shows?.network?.country?.name} <a href={shows?.network?.officialSite} target="_blank">{shows?.network?.name}</a></td>
                                     </tr>
                                     <tr>
                                         <th>Schedule</th>
@@ -219,8 +248,8 @@ export const Show = () => {
                     </div>
                     
                     <div className="row">
-                        <div className="row offs">
-                            {
+                        <div className="row grid offs">
+                            {/* {
                                 crews.map((element, index) => {
                                     if(element?.person?.image?.medium != null) {
                                         imageUrl = <img src={element?.person?.image?.medium} alt={element.person.name} />
@@ -236,6 +265,28 @@ export const Show = () => {
 
                                             <p><strong>{element.person.name}</strong></p>
                                             <p>{element.type}</p>
+                                        </div>
+                                    );
+                                })
+                            } 
+
+<div style={{ clear: 'both'}}></div> */}
+                            {
+                                crewMember.map((element, index) => {
+                                    if(element?.person?.image?.medium != null) {
+                                        imageUrl = <img src={element?.person?.image?.medium} alt={element.person.name} />
+                                    } else {
+                                        imageUrl = <span>Image not available</span>;
+                                    }
+
+                                    return (                                       
+                                        <div className="col-md-2 col-sm-2 col-xs-12" key={index}>
+                                            <div className="thumbnail">
+                                                {imageUrl}
+                                            </div>
+
+                                            <p><strong>{element.person.name}</strong></p>
+                                            <p>{element.crews}</p>
                                         </div>
                                     );
                                 })
