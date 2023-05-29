@@ -1,5 +1,3 @@
-// const showLoading = (props) => (props.loading ? <div id="preloader"></div> : "");
-
-const Loader = (props) => <div id="preloader"></div>;
+const Loader = (props) => <div id="preloader">{props.message}</div>;
 
 export default Loader;

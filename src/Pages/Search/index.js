@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';  
+
 import Heading from '../../Layouts/Heading';
 import Loader from '../../Layouts/Loader';
 import placeholder from '../../assets/images/placeholder.jpeg';
@@ -31,7 +32,7 @@ const Search = () => {
         setUrl(`https://api.tvmaze.com/search/shows?q=${searcQuery}`);
     };
 
-    const showLoading = () => (loading ? <Loader message="Loading..." /> : "");
+    const showLoading = () => (loading ? <Loader /> : "");
 
     const searchForm = () => (
         <div className="container">
@@ -96,8 +97,6 @@ const Search = () => {
                             })
                         }
                     </div>
-        
-                    <a href="/" className="btn btn-default">View All</a>
                 </div>
             )
         }

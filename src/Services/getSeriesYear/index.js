@@ -1,5 +1,5 @@
 // Get the year from the date
- const getSeriesYear = (props) => {
+const getSeriesYear = (props) => {
     if (props.premiered != null) {
         const premier = props.premiered;
         let premierArray = premier.split("-");
