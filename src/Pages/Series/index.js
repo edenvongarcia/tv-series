@@ -39,7 +39,7 @@ class Series extends Component {
                         path="/tv-series/shows/:showId"
                         element={<Show />}
                         />
-                        <Route element={<NoRoute />} />
+                        <Route path='*' element={<NoRoute />} />
                     </Routes>
                 </main>
                 
