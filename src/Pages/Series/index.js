@@ -10,6 +10,7 @@ import { About } from '../../Pages/About'; // we use { About } if About.js don't
 import { Api } from '../../Pages/Api';
 import { NoRoute } from '../../Pages/NoRoute';
 import { Routes, Route } from 'react-router-dom';
+// import { Switch, Route } from 'react-router-dom';
 import '../../mailform.css';  
 import '../../series.css';  
 import '../../styles.css';  
@@ -22,15 +23,23 @@ class Series extends Component {
 
                 <main>
                     <Routes>
-                        <Route path='/' element={<AllShows />} />
-                        <Route path='tv-series/' element={<AllShows />} />
-                        <Route path='search' element={<Search />} />
-                        <Route path='countdown' element={<Countdown />} />
-                        <Route path='api' element={<Api />} />
-                        <Route path='about' element={<About />} />
-                        <Route path='shows/:showId' element={<Show />} />
-                        <Route path='tv-series/shows/:showId' element={<AllShows />} />
-                        <Route path='*' element={<NoRoute />} />
+                        <Route exact path="/" element={<AllShows />} />
+                        <Route exact path="/example" element={<AllShows />} />
+                        <Route exact path='/search' element={<Search />} />
+                        <Route exact path='/countdown' element={<Countdown />} />
+                        <Route exact path='/api' element={<Api />} />
+                        <Route exact path='/about' element={<About />} />
+                        <Route
+                        exact
+                        path="/shows/:showId"
+                        element={<Show />}
+                        />
+                        <Route
+                        exact
+                        path="/tv-series/shows/:showId"
+                        element={<Show />}
+                        />
+                        <Route element={<NoRoute />} />
                     </Routes>
                 </main>
                 
