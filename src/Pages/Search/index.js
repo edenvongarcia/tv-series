@@ -89,7 +89,7 @@ const Search = () => {
                                             </div>
                                         </div>
                                         
-                                        <h5 className="fw-m">{element.show.name}</h5>
+                                        <h5 className="fw-m"><a href= {"shows/" + element.show.id} title="View more details">{element.show.name}</a></h5>
         
                                         <time><GetSeriesYear premiered={element.show.premiered} /></time>
                                     </div>

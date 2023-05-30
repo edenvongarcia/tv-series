@@ -19,7 +19,7 @@ const AllShows = () => {
     });
 
     let [currentPage, setCurrentPage] = useState(firstsearcQueryVal);
-    const [url, setUrl] = useState(`https://api.tvmaze.com/shows?page=0`);
+    const [url, setUrl] = useState(`https://api.tvmaze.com/shows?page=${firstsearcQueryVal}`);
     const [loading, setLoading] = useState(false);
     
     useEffect(() => {
@@ -29,7 +29,7 @@ const AllShows = () => {
     const handlePageClick = async (data) => {
         currentPage = data.selected;
         setUrl(`https://api.tvmaze.com/shows?page=${currentPage}`);
-        console.log("currentPage ", currentPage);
+        setCurrentPage(currentPage);
     };
 
     const showLoading = () => (loading ? <Loader /> : "");
@@ -85,7 +85,7 @@ const AllShows = () => {
                                     </div>
                                 </div>
 
-                                <h5 className="fw-m">{element.name}</h5>
+                                <h5 className="fw-m"><a href= {"shows/" + element.id} title="View more details">{element.name}</a></h5>
 
                                 <time><GetSeriesYear premiered={element.premiered} /></time>
                             </div>
