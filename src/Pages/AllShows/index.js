@@ -77,7 +77,7 @@ const AllShows = () => {
                         return (
                             <div className='col-md-3 col-sm-6 col-xs-12' key={index}>
                                 <div className="thumbnail">
-                                    <a href= {"shows/" + element.id} title="View more details"><img src={imageUrl} alt={element.name} /></a>
+                                    <a href= {"/tv-series/shows/" + element.id} title="View more details"><img src={imageUrl} alt={element.name} /></a>
 
                                     <div className="thumbnail_overlay">
                                         <a className="fa  fa-clock-o" href="#" title="Runtime"> <span className="badge"><TimeConverter runtime={runTime} /></span></a>
@@ -85,7 +85,7 @@ const AllShows = () => {
                                     </div>
                                 </div>
 
-                                <h5 className="fw-m"><a href= {"shows/" + element.id} title="View more details">{element.name}</a></h5>
+                                <h5 className="fw-m"><a href= {"/tv-series/shows/" + element.id} title="View more details">{element.name}</a></h5>
 
                                 <time><GetSeriesYear premiered={element.premiered} /></time>
                             </div>
